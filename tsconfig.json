@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+      "baseUrl" : "./",
+      "target": "es2015",
+      "module": "commonjs",
+      "outDir": "./",
+      "noImplicitAny": false,
+      "strict": true,
+      "declaration": true,
+      "declarationMap": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "sourceMap": true,
+      "inlineSources": true,
+      "noUnusedLocals": true,                /* Report errors on unused locals. */
+      "noUnusedParameters": true,            /* Report errors on unused parameters. */
+      "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
+      "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+      "lib": [
+        "es2018",
+        "dom",
+        "es2015.promise"
+      ],
+      "paths": {
+        "common": [
+          "lib/common"
+        ],
+        "common/*": [
+          "lib/common/*"
+        ]
+      },
+    },
+
+    "include": ["src"],
+    "exclude": ["node_modules", "**/__tests__/*"]
+  }
