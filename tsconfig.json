@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "baseUrl" : "./",
+      "baseUrl" : "./src",
       "target": "es2015",
       "module": "commonjs",
       "outDir": "./",
@@ -23,11 +23,11 @@
         "es2015.promise"
       ],
       "paths": {
-        "common": [
-          "lib/common"
+        "selenium": [
+          "lib/selenium"
         ],
-        "common/*": [
-          "lib/common/*"
+        "selenium/*": [
+          "lib/selenium/*"
         ]
       },
     },
