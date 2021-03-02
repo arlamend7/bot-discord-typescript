@@ -28,8 +28,8 @@ export async function pegarAulas(matricula: string, senha: string, conf: string,
     var listaTr;
     if (conf) {
       var date;
-      if (conf == '--day') date = new Date().getDay();
-      else if (conf == '--tomorrow') date = new Date().getDay() + 1;
+      if (conf == '--hoje') date = new Date().getDay();
+      else if (conf == '--amanha') date = new Date().getDay() + 1;
       var pegar: boolean = false;
       listaTr = await (await page.findElement(By.className('fc-list-table'))).findElements(By.css('tr'));
       var newListTr = [];
