@@ -22,16 +22,16 @@ export function turnOff() {
 }
 export var conneted : boolean;
 export interface ElementHelper {
-    (): (locator: Locator) => WebElementPromise;
-    all: (locator: Locator) => Promise<WebElement[]>;
+    (): WebElementPromise;
+    all(locator: Locator) : Promise<WebElement[]>;
 }
 var defaultTimeout = 20000;
-function getElementOrWait(elemento: WebElement, waitTime: number = defaultTimeout) {
+export function getElementOrWait(elemento: WebElement, waitTime: number = defaultTimeout) {
     return browser.wait(elemento.isDisplayed(), waitTime).then(() => elemento);
 }
-function descePixels(pixel: number) {
+export function descePixels(pixel: number) {
     browser.executeScript(`window.scrollTo(0,${pixel});`);
 }
-function WaitElementBeClickable(elemento: WebElement, waitTime: number = defaultTimeout) {
+export function WaitElementBeClickable(elemento: WebElement, waitTime: number = defaultTimeout) {
     return browser.wait(elemento.isDisplayed() && elemento.isEnabled(), waitTime).then(() => elemento);
 }

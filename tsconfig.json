@@ -23,11 +23,11 @@
         "es2015.promise"
       ],
       "paths": {
-        "selenium": [
-          "lib/selenium"
+        "@browser": [
+          "./lib/selenium"
         ],
-        "selenium/*": [
-          "lib/selenium/*"
+        "@browser/": [
+          "./lib/selenium/*"
         ]
       },
     },
