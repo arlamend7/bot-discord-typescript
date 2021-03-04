@@ -1,8 +1,8 @@
 import { Message, MessageAttachment } from 'discord.js';
 import { By, Key, WebDriver, WebElement } from 'selenium-webdriver';
-import { element,waitBeClickable } from '../../../libs/selenium';
-import { createBrowser } from '../index';
-import { Aula } from './models/aula';
+import { element,waitBeClickable } from '../../../../libs/selenium';
+import { createBrowser } from '../../index';
+import { Aula } from '../models/aula';
 
 export async function pegarAulas(matricula: string, senha: string, conf: string, message: Message) {
     var aulas = [];
