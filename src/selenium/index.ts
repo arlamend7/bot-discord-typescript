@@ -5,8 +5,8 @@ import { path } from 'chromedriver';
 
 chrome.setDefaultService(new chrome.ServiceBuilder(path).build());
 
-export function createBrowser(){
-    return startBrowser(new Builder().withCapabilities(Capabilities.chrome()).build())
+export function createBrowser() {
+  return startBrowser(new Builder().withCapabilities(Capabilities.chrome()).build());
 }
 
 export * as uvv from './uvv';
