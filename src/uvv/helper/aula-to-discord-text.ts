@@ -1,5 +1,5 @@
 import { Aula } from "../models/aula";
-import "../../../libs/extensions/date";
+import "@libs/extensions/date";
 export function print(Aula: Aula) {
     var texto = "```js\n";
     texto += "{\n";

@@ -1,6 +1,6 @@
 import { Locator, until, WebElement, WebElementPromise } from 'selenium-webdriver';
 import { browser, defaultTimeout } from '../index';
-
+export * from "selenium-webdriver"
 export const element: ElementFinderHelper = (locator: Locator, waitTime: number = defaultTimeout) =>
   browser.wait(until.elementLocated(locator), waitTime);
 element.all = (locator: Locator, waitTime: number = defaultTimeout) =>

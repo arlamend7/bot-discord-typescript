@@ -1,9 +1,9 @@
 import { Message, Client } from "discord.js";
-import { getComands, initWith, initWithOneOf } from "./global";
+import { getComands, initWith, initWithOneOf } from "@global";
+import { enviroment } from "@environments";
 import * as uvv from "./uvv";
-import "./environments";
 
-console.log(process.env.ENV);
+console.log(enviroment.base);
 
 export const client = new Client();
 client.login(process.env.BOT_TOKEN);

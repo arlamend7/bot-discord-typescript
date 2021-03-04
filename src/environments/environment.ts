@@ -1,3 +1,6 @@
 export const enviroment = {
-    base: "dev"
+    base: "dev",
+    uvv: {
+        urlBase: "https://aluno.uvv.br/"
+    }
 };

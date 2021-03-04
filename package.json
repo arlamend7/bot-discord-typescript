@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "start:prod":"ENV=prod npm run start",
-    "start:hml":"ENV=hml npm run start",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts ",
+    "start:prod": "ENV=prod npm run start",
+    "start:hml": "ENV=hml npm run start",
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
@@ -33,6 +33,7 @@
     "rxjs": "^6.6.6",
     "selenium-webdriver": "^4.0.0-beta.1",
     "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.2",
     "win-node-env": "^0.4.0",
     "ytdl-core": "^4.5.0"

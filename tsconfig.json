@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-      "baseUrl" : "./src",
       "target": "es2015",
       "module": "commonjs",
       "outDir": "./",
@@ -15,16 +14,14 @@
         "dom",
         "es2015.promise"
       ],
+      "baseUrl" : ".",
       "paths": {
-        "@browser": [
-          "selenium/index.ts"
-        ],
-        "@browser/": [
-          "selenium/*"
-        ]
+        "@environments": ["./src/environments"],
+        "@libs/*": ["./libs/*"],
+        "@global/*": ["./src/global/*"],
+        "@global": ["./src/global"],
       },
     },
-
     "include": ["src", "tests"],
     "exclude": ["node_modules", "**/__tests__/*"]
   }

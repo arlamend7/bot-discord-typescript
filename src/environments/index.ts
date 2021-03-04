@@ -4,4 +4,4 @@ function configuration() {
     config();
     return process.env.ENV ? "." + process.env.ENV : "";
 }
-export var enviroment: typeof envdev = require(`./environment${configuration()}`);
+export var enviroment: typeof envdev = require(`./environment${configuration()}`).enviroment;

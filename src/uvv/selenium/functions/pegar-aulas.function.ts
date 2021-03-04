@@ -1,20 +1,22 @@
+import { element, waitBeClickable, By, Key, WebElement, WebDriver } from "@libs/selenium";
+import { enviroment } from "@environments";
+import { createBrowser } from "@global/selenium";
 import { Message, MessageAttachment } from "discord.js";
-import { By, Key, WebDriver, WebElement } from "selenium-webdriver";
-import { element, waitBeClickable } from "../../../../libs/selenium";
-import { createBrowser } from "../../../global/selenium/index";
 import { Aula } from "../../models/aula";
+
+const url = enviroment.uvv.urlBase;
 
 export async function pegarAulas(matricula: string, senha: string, conf: string, message: Message) {
     var aulas = [];
 
     await createBrowser().then(async page => {
-        await page.get("https://aluno.uvv.br/Login");
+        await page.get(url);
         await element(By.id("Matricula")).sendKeys(matricula, Key.TAB, senha);
         await (await element(By.className("btn col-lg-12 btn-primary input-block-level"))).click();
 
         await page.sleep(200);
-        await page.navigate().to("https://aluno.uvv.br/Calendario/AulasOnline/66738");
-        await page.navigate().to("https://aluno.uvv.br/Calendario/AulasOnline/66738");
+        await page.navigate().to(url + "Calendario/AulasOnline/66738");
+        await page.navigate().to(url + "Calendario/AulasOnline/66738");
 
         await page.sleep(200);
         await message.channel.send(new MessageAttachment(Buffer.from(await page.takeScreenshot(), "base64")));
@@ -75,14 +77,14 @@ export async function pegarAulas(matricula: string, senha: string, conf: string,
 
 async function esperarLink(tr: WebElement, page: WebDriver) {
     var aula = new Aula();
-    await await tr.findElement(By.className("fc-list-item-time fc-widget-content")).then(x => {
+    await tr.findElement(By.className("fc-list-item-time fc-widget-content")).then(x => {
         x.getText().then(x => {
             aula.horario = x;
             tr.click();
         });
     });
     await page.sleep(2000);
-    await await element(By.id("Descricao")).then(x => {
+    await element(By.id("Descricao")).then(x => {
         x.getText().then(x => {
             aula.materia = x;
             let data = /(\d+)\/(\d+)\/(\d+)/.exec(x)[0].split("/");
