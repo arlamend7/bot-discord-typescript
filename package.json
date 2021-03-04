@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
+    "start --prod":"ENV=prod start",
+    "start --hml":"ENV=hml start",
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
@@ -25,12 +27,14 @@
     "@types/selenium-webdriver": "^4.0.11",
     "chromedriver": "^88.0.0",
     "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
     "rxjs": "^6.6.6",
     "selenium-webdriver": "^4.0.0-beta.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.2",
+    "win-node-env": "^0.4.0",
     "ytdl-core": "^4.5.0"
   },
   "devDependencies": {
