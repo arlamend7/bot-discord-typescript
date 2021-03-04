@@ -17,10 +17,10 @@
       ],
       "paths": {
         "@browser": [
-          "./lib/selenium"
+          "selenium/index.ts"
         ],
         "@browser/": [
-          "./lib/selenium/*"
+          "selenium/*"
         ]
       },
     },
