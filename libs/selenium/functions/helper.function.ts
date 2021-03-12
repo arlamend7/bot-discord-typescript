@@ -1,28 +1,35 @@
-import { Locator, until, WebElement, WebElementPromise } from 'selenium-webdriver';
-import { browser, defaultTimeout } from '../index';
+import { Locator, until, WebDriver, WebElement } from 'selenium-webdriver';
+import { defaultTimeout } from '../index';
 export * from "selenium-webdriver"
-export const element: ElementFinderHelper = (locator: Locator, waitTime: number = defaultTimeout) =>
-  browser.wait(until.elementLocated(locator), waitTime);
-element.all = (locator: Locator, waitTime: number = defaultTimeout) =>
+export function createHelper(browser: WebDriver){
+  function elementHelper(locator: Locator, waitTime: number = defaultTimeout) {
+   return browser.wait(until.elementLocated(locator), waitTime)
+    };
+  elementHelper.all = (locator: Locator, waitTime: number = defaultTimeout) =>
   browser.wait(until.elementsLocated(locator), waitTime);
+  return {
+    element : elementHelper,
+    descePixels(pixel: number) {
+      browser.executeScript(`window.scrollTo(0,${pixel});`);
+    },
 
-interface ElementFinderHelper {
-  (locator: Locator): WebElementPromise;
-  all(locator: Locator): Promise<WebElement[]>;
-}
-export function descePixels(pixel: number) {
-  browser.executeScript(`window.scrollTo(0,${pixel});`);
-}
-
-export function waitBeClickable(elemento: WebElement | Locator, waitTime: number = defaultTimeout) {
-  if (!(elemento instanceof WebElement)) {
-    elemento = browser.wait(until.elementLocated(elemento), waitTime);
+    waitBeClickable(elemento: WebElement | Locator, waitTime: number = defaultTimeout) {
+      if (!(elemento instanceof WebElement)) {
+        elemento = browser.wait(until.elementLocated(elemento), waitTime);
+      }
+      return browser.wait(until.elementIsVisible(elemento) && until.elementIsEnabled(elemento), waitTime);
+    },
+    waitTextContains(elemento: WebElement| Locator, sub: string, waitTime: number = defaultTimeout) {
+      if (!(elemento instanceof WebElement)) {
+        elemento = browser.wait(until.elementLocated(elemento), waitTime);
+      }
+      return browser.wait(until.elementTextContains(elemento, sub), waitTime);
+    },
+    async waitElementNotVisible(elemento: WebElement | Locator, waitTime: number = defaultTimeout) {
+      if (!(elemento instanceof WebElement)) {
+        elemento = browser.wait(until.elementLocated(elemento), waitTime);
+      }
+      await browser.wait(until.elementIsNotVisible(elemento), waitTime);
+    }
   }
-  return browser.wait(until.elementIsVisible(elemento) && until.elementIsEnabled(elemento), waitTime);
-}
-export function waitTextContains(elemento: WebElement, sub: string, waitTime: number = defaultTimeout) {
-  return browser.wait(until.elementTextContains(elemento, sub), waitTime);
-}
-export async function waitElementNotVisible(elemento: WebElement, waitTime: number = defaultTimeout) {
-  await browser.wait(until.elementIsNotVisible(elemento), waitTime);
 }

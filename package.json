@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register src/index.ts ",
+    "start": "ts-node -r tsconfig-paths/register index.ts ",
     "start:prod": "ENV=prod npm run start",
     "start:hml": "ENV=hml npm run start",
     "test": "jest -c jest.config.js --coverage --no-cache --verbose",
@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-typescript": "^7.13.0",
     "@discordjs/opus": "^0.4.0",
+    "@types/chromedriver": "^81.0.0",
     "@types/node": "^14.14.31",
     "@types/selenium-webdriver": "^4.0.11",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -35,24 +36,22 @@
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^9.1.0",
+    "http": "0.0.1-security",
+    "jest": "^26.6.3",
     "jest-runner-tsc": "^1.6.0",
+    "prettier": "^2.2.1",
     "rxjs": "^6.6.6",
     "selenium-webdriver": "^4.0.0-beta.1",
-    "ts-node": "^9.1.1",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.2.2",
-    "win-node-env": "^0.4.0",
-    "ytdl-core": "^4.5.0",
-    "@types/chromedriver": "^81.0.0",
-    "fs-extra": "^9.1.0",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1",
     "ts-jest": "^26.5.2",
     "ts-loader": "^8.0.17",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0"
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.2.2",
+    "win-node-env": "^0.4.0",
+    "ytdl-core": "^4.5.0"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

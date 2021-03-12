@@ -1,2 +1,2 @@
 export * from "./index.commands";
-export const prefix = "uvv ";
+export const prefix = "uvv";
